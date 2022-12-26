@@ -1,7 +1,12 @@
+import json
+
 class LineDataContainer():
 
-
 	def __init__(self,path_to_json):
+
+		json_file = open(path_to_json)
+		data = json.load(json_file)
+
 		self.line_beginnings= ["Alle Leute sagen zu mir",
 		"Es ist nicht so leicht",
 		"Kann es aber sein",
@@ -19,14 +24,8 @@ class LineDataContainer():
 		"Bin der King mit dem dicken Ding"
 		]
 
-		self.line_verbs = [
-		"labern",
-		"erzählen",
-		"glauben",
-		"ficken",
-		"tuten",
-		"blasen"
-		] 
+		self.line_verbs = data['Verben']
+
 		self.substantive_maennlich =[
 		"Mann",
 		"Porno",

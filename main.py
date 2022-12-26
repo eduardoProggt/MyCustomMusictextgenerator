@@ -1,7 +1,7 @@
 import random
 from LineDataContainer import LineDataContainer
 
-lineData = LineDataContainer("mock")
+lineData = LineDataContainer('MCMdb.txt')
 line_verbs = lineData.line_verbs
 line_standalones = lineData.line_standalones
 line_line_beginnings = lineData.line_beginnings

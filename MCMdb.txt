@@ -1,4 +1,11 @@
-{ "Verben" : ["labern", "tun"],
+{ "Verben" : [
+  "labern", 
+  "tun",
+  "erzählen",
+  "glauben",
+  "ficken",
+  "tuten",
+  "blasen"],
 "Substantiv_weiblich" : ["Titte", "Fotze"],
 "Substantiv_männlich" : ["Knast", "King"],
 "Substantiv_neutrum" : ["Land", "Haus"],

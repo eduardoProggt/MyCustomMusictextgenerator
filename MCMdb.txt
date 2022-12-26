@@ -1,11 +1,11 @@
 { "Verben" : [
-  "labern", 
-  "tun",
-  "erzählen",
-  "glauben",
-  "ficken",
-  "tuten",
-  "blasen"],
+    "labern", 
+    "tun",
+    "erzählen",
+    "glauben",
+    "ficken",
+    "tuten",
+    "blasen"],
 "Substantiv_weiblich" : [
 	"Titte", 
 	"Fotze",
@@ -21,9 +21,9 @@
 	"Straße",
 	"Jugend",
 	"Muschi",
-	"Ecke",
+	"Ecke"
 	],
-"Substantiv_männlich" : [
+"Substantiv_maennlich" : [
 	"Knast",
 	"Mann",
 	"Porno",
@@ -43,16 +43,23 @@
 	"Rasen",
 	"Arsch",
 	"King",
-	"Kopf",],
+	"Kopf"
+	],
 "Substantiv_neutrum" : [
 	"Land", 
 	"Haus",
-	"Deutschland",],
+	"Deutschland"
+	],
 "Substantiv_mehrzahl" : [
 	"Titten",
 	"Fotzen",
 	"Frauen",
 	"Leute",
 	"Ladies",
+	"Hater",
+	"Drackskinder",
+	"Rapper",
+	"Wichser",
+	"Nutten"
 	]
 }

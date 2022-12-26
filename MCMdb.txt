@@ -1,58 +1,6 @@
-Substanstive Weiblich:
-Ecke
-Street
-Fotze
-Schelle
-Pussy
-Muschi
-Mutter
-Fresse
-
-Substantive Männlich
-Mann
-Porno
-Knast
-Schwanz
-MCM
-Nazi
-Spast
-Dreck
-Gangbang
-Fame
-Proll
-Kickback
-Stich
-
-Substantive Mehrzahl
-Fotzen
-Leute
-Hater
-Drackskinder
-Rapper
-Wichser
-
-Substantive Neutrum
-Deutschland
-Leben
-
-Verben:
-labern
-erzählen
-glauben
-ficken
-gefickt
-tuten
-blasen
-
-
-Adjektive:
-abgezeckt
-
-Onomatopoesien:
-Yami
-Haaaa
-Yeah
-Uuuh
-Eh
-Ey
-
+{ "Verben" : ["labern", "tun"],
+"Substantiv_weiblich" : ["Titte", "Fotze"],
+"Substantiv_männlich" : ["Knast", "King"],
+"Substantiv_neutrum" : ["Land", "Haus"],
+"Substantiv_mehrzahl" : ["Titten", "Fotzen"]
+}

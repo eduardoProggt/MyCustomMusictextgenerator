@@ -15,15 +15,27 @@ line_standalone = [
 "Mach es ausm Kopf",
 ]
 
+line_verbs = [
+"labern",
+"erzählen",
+"glauben",
+"ficken",
+"tuten",
+"blasen"
+] 
 text = ""
 
 def addline():
 	text = ""
-	if random.randint(1, 3) == 3:
+	randint_for_line_type = random.randint(0, 20)
+	if randint_for_line_type > 15:
 		text+= getRandomElement(line_standalone)
-	else:
+	elif randint_for_line_type > 1:
 		text+= getRandomElement(line_begins) + getRandomElement(line_ends)
-
+	elif randint_for_line_type > 0:
+		text+= "Was soll ich tun \nSoll ich "+getRandomElement(line_verbs)+" oder ruhn?"
+	else:
+		text+= getRandomElement(line_verbs) +", " +getRandomElement(line_verbs) +", "+getRandomElement(line_verbs) +" und zählen die Scheine" 
 	return text +" \n"
 
 def getRandomElement(line):

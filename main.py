@@ -1,37 +1,21 @@
 import random
+from LineDataContainer import LineDataContainer
 
-line_begins= ["Alle Leute sagen zu mir",
-"Es ist nicht so leicht",
-"Kann es aber sein",
-"Es ist mir egal",
-"Auch wenn du denkst",
-"Ohne nice"]
+lineData = LineDataContainer("mock")
+line_verbs = lineData.line_verbs
+line_standalones = lineData.line_standalones
+line_line_beginnings = lineData.line_beginnings
+line_endings = lineData.line_endings
 
-line_ends = [" bin so genial.", " bist so abgezeckt", " du wohnst in den Knast", " geh widder Heim"]
-
-line_standalone = [
-"Zeig\' ich dir den Mittelfinger",
-"Bleib ich wie ich bin",
-"Mach es ausm Kopf",
-]
-
-line_verbs = [
-"labern",
-"erzählen",
-"glauben",
-"ficken",
-"tuten",
-"blasen"
-] 
 text = ""
 
 def addline():
 	text = ""
 	randint_for_line_type = random.randint(0, 20)
 	if randint_for_line_type > 15:
-		text+= getRandomElement(line_standalone)
+		text+= getRandomElement(line_standalones)
 	elif randint_for_line_type > 1:
-		text+= getRandomElement(line_begins) + getRandomElement(line_ends)
+		text+= getRandomElement(line_line_beginnings) + getRandomElement(line_endings)
 	elif randint_for_line_type > 0:
 		text+= "Was soll ich tun \nSoll ich "+getRandomElement(line_verbs)+" oder ruhn?"
 	else:

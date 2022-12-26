@@ -102,6 +102,7 @@
 	" geh widder Heim", 
 	" es ist der pure Neid", 
 	" lass es aber sein", 
-	" ihr werdet schon sehn"
+	" ihr werdet schon sehn",
+	" lass dich nie im Leben gehn"
 	]
 }

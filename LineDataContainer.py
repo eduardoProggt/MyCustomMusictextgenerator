@@ -7,9 +7,10 @@ class LineDataContainer():
 		"Kann es aber sein",
 		"Es ist mir egal",
 		"Auch wenn du denkst",
-		"Ohne nice"]
+		"Ohne nice",
+		"Gebe niemals auf"]
 
-		self.line_endings = [" bin so genial.", " bist so abgezeckt", " du wohnst in den Knast", " geh widder Heim"]
+		self.line_endings = [" bin so genial.", " bist so abgezeckt", " du wohnst in den Knast", " geh widder Heim", " es ist der pure Neid", " lass es aber sein"]
 
 		self.line_standalones = [
 		"Zeig\' ich dir den Mittelfinger",
@@ -26,3 +27,24 @@ class LineDataContainer():
 		"tuten",
 		"blasen"
 		] 
+		self.substantive_maennlich =[
+		"Mann",
+		"Porno",
+		"Knast",
+		"Schwanz",
+		"MCM",
+		"Nazi",
+		"Spast",
+		"Dreck",
+		"Gangbang",
+		"Fame",
+		]
+		self.substantive_mehrzahl = [
+		"Fotzen",
+		"Leute",
+		"Hater",
+		"Drackskinder",
+		"Rapper",
+		"Wichser",
+		"Nutten"
+		]

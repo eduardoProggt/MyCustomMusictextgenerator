@@ -24,6 +24,7 @@ def addline():
 	else:
 		verb = getRandomElementsExclusive(line_verbs,3)
 		text+= verb[0] +", " +verb[1] +", "+verb[2] +" und zählen die Scheine" 
+		text = text.capitalize()
 	return text +" \n"
 	
 	#Mehrzahl haben ne Weiblich

@@ -12,4 +12,5 @@ class LineDataContainer():
 		self.line_standalones = data["Line_Standalone"]
 		self.line_verbs = data['Verben']
 		self.substantive_maennlich = data['Substantiv_maennlich']
+		self.substantive_weiblich = data['Substantiv_weiblich']
 		self.substantive_mehrzahl = data["Substantiv_mehrzahl"]

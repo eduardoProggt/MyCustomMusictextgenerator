@@ -11,8 +11,10 @@ text = ""
 
 def addline():
 	text = ""
-	randint_for_line_type = random.randint(0, 22)
-	if randint_for_line_type > 20:
+	randint_for_line_type = random.randint(0, 24)
+	if randint_for_line_type > 22:
+		text+= getRandomElement(lineData.substantive_mehrzahl) + " haben ne " + getRandomElement(lineData.substantive_weiblich)
+	elif randint_for_line_type > 21:
 		substantive = getRandomElementsExclusive(lineData.substantive_maennlich,2)
 		text+= "Jeder "+ substantive[0] +" will mich dissen \nJeder "+substantive[1]+" kann sich verpissen \n"+getRandomElement(lineData.substantive_mehrzahl)+" haben schlechtes Gewissen"
 	elif randint_for_line_type > 15:
@@ -27,8 +29,6 @@ def addline():
 		text = text.capitalize()
 	return text +" \n"
 	
-	#Mehrzahl haben ne Weiblich
-	#'blamage, visage'
 
 def getRandomElement(line):
 	return line[random.randint(0, len(line) - 1)]

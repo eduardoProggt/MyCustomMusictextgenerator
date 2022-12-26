@@ -8,10 +8,9 @@
     "blasen",
     "wollen",
     "sollen",
-    "ist",
     "sein",
     "können",
-    "chill",
+    "chillen",
     "scheißen",
     "checken",
     "laufen",
@@ -35,7 +34,9 @@
 	"Straße",
 	"Jugend",
 	"Muschi",
-	"Ecke"
+	"Ecke",
+	"Visage",
+	"Blamage"
 	],
 "Substantiv_maennlich" : [
 	"Knast",
@@ -74,7 +75,8 @@
 	"Drackskinder",
 	"Rapper",
 	"Wichser",
-	"Nutten"
+	"Nutten",
+	"Triebtäter"
 	],
 "Line_Standalone" : [
 	"Zeig' ich dir den Mittelfinger",

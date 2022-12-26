@@ -75,5 +75,31 @@
 	"Rapper",
 	"Wichser",
 	"Nutten"
+	],
+"Line_Standalone" : [
+	"Zeig' ich dir den Mittelfinger",
+	"Bleib ich wie ich bin",
+	"Bin der King mit dem dicken Ding",
+	"Es ist wie ein Stich in Herz"
+	],
+"Line_Beginnings" : [
+	"Alle Leute sagen zu mir:",
+	"Es ist nicht so leicht",
+	"Kann es aber sein",
+	"Es ist mir egal",
+	"Auch wenn du denkst",
+	"Ohne nice",
+	"Gebe niemals auf",
+	"Mach es ausm Kopf",
+	"Weiß ich ganz genau"
+	],
+"Line_Endings" : [
+	" bin so genial.", 
+	" bist so abgezeckt", 
+	" du wohnst in den Knast", 
+	" geh widder Heim", 
+	" es ist der pure Neid", 
+	" lass es aber sein", 
+	" ihr werdet schon sehn"
 	]
 }

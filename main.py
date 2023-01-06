@@ -1,5 +1,6 @@
 import random
 from LineDataContainer import LineDataContainer
+from WordAssociator import WordAssociator
 
 lineData = LineDataContainer('MCMdb.txt')
 line_verbs = lineData.line_verbs
@@ -8,6 +9,7 @@ line_line_beginnings = lineData.line_beginnings
 line_endings = lineData.line_endings
 
 text = ""
+withTopic = True
 
 def addline():
 	text = ""
@@ -28,7 +30,12 @@ def addline():
 		text+= verb[0] +", " +verb[1] +", "+verb[2] +" und zählen die Scheine" 
 		text = text.capitalize()
 	return text +" \n"
-	
+
+def addTopicLine(word):
+	text = ""
+	wa = WordAssociator(word)
+	text += "Ich bin eine "+getRandomElement(wa.nouns) +" und ich mag "+ getRandomElement(wa.verbs)
+	return text + "\n"
 
 def getRandomElement(line):
 	return line[random.randint(0, len(line) - 1)]
@@ -43,6 +50,10 @@ def getRandomElementsExclusive(line,noOfLines):
 	return lines
 
 for i in range(0,8):
-	text += addline()
+	if withTopic:
+		text += addTopicLine("Nutte")
+		withTopic = False
+	else:
+		text += addline()
 
 print(text)

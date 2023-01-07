@@ -4,7 +4,7 @@ class LineDataContainer():
 
 	def __init__(self,path_to_json):
 
-		json_file = open(path_to_json)
+		json_file = open(path_to_json, encoding='utf-8')
 		data = json.load(json_file)
 
 		self.line_beginnings = data["Line_Beginnings"]

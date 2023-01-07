@@ -58,7 +58,8 @@
 	"Rasen",
 	"Arsch",
 	"King",
-	"Kopf"
+	"Kopf",
+	"Messerstecher"
 	],
 "Substantiv_neutrum" : [
 	"Land", 

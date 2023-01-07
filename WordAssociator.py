@@ -29,7 +29,7 @@ class WordAssociator():
 			nouns      = words_column[0]
 			adjectives = words_column[1]
 			verbs      = words_column[2]
-			adverbs    = words_column[3]
+			#adverbs    = words_column[3]  TODO: Fehler fangen, wenn es gewisse Worttypen (Wie hier Adverben) nicht gibt
 
 			for child in nouns[1]:
 				self.nouns.append(child[0].text)
@@ -37,8 +37,8 @@ class WordAssociator():
 				self.adjectives.append(child[0].text)
 			for child in verbs[1]:
 				self.verbs.append(child[0].text)
-			for child in adverbs[1]:
-				self.adverbs.append(child[0].text)
+			#for child in adverbs[1]:
+				#self.adverbs.append(child[0].text)
 
 		else:
 			pass # TODO Nach Synonymen von word suchen und nochmal probieren 

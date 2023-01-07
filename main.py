@@ -2,16 +2,23 @@ import random
 from LineDataContainer import LineDataContainer
 from WordAssociator import WordAssociator
 
-lineData = LineDataContainer('MCMdb.txt')
-line_verbs = lineData.line_verbs
-line_standalones = lineData.line_standalones
-line_line_beginnings = lineData.line_beginnings
-line_endings = lineData.line_endings
+def writeText(topic):
 
-text = ""
-withTopic = True
+	lineData = LineDataContainer('MCMdb.txt')
 
-def addline():
+	text = ""
+	withTopic = (not topic == "")
+	for i in range(0,8):
+		if withTopic:
+			text += addTopicLine(topic)
+			withTopic = False
+		else:
+			text += addline(lineData)
+
+	print(text)
+	return text
+
+def addline(lineData):
 	text = ""
 	randint_for_line_type = random.randint(0, 24)
 	if randint_for_line_type > 22:
@@ -20,13 +27,13 @@ def addline():
 		substantive = getRandomElementsExclusive(lineData.substantive_maennlich,2)
 		text+= "Jeder "+ substantive[0] +" will mich dissen \nJeder "+substantive[1]+" kann sich verpissen \n"+getRandomElement(lineData.substantive_mehrzahl)+" haben schlechtes Gewissen"
 	elif randint_for_line_type > 15:
-		text+= getRandomElement(line_standalones)
+		text+= getRandomElement(lineData.line_standalones)
 	elif randint_for_line_type > 1:
-		text+= getRandomElement(line_line_beginnings) + getRandomElement(line_endings)
+		text+= getRandomElement(lineData.line_beginnings) + getRandomElement(lineData.line_endings)
 	elif randint_for_line_type > 0:
-		text+= "Was soll ich tun? \nSoll ich "+getRandomElement(line_verbs)+" oder ruhn?"
+		text+= "Was soll ich tun? \nSoll ich "+getRandomElement(lineData.line_verbs)+" oder ruhn?"
 	else:
-		verb = getRandomElementsExclusive(line_verbs,3)
+		verb = getRandomElementsExclusive(lineData.line_verbs,3)
 		text+= verb[0] +", " +verb[1] +", "+verb[2] +" und zählen die Scheine" 
 		text = text.capitalize()
 	return text +" \n"
@@ -49,11 +56,5 @@ def getRandomElementsExclusive(line,noOfLines):
 		lineIn.remove(newLine)
 	return lines
 
-for i in range(0,8):
-	if withTopic:
-		text += addTopicLine("Nutte")
-		withTopic = False
-	else:
-		text += addline()
-
-print(text)
+if __name__ == '__main__':
+	writeText("Nutte")

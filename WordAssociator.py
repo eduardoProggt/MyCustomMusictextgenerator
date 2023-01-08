@@ -6,7 +6,7 @@ between = False
 class WordAssociator():
 
 	def __init__(self,word):
-		self.nouns = []
+		self.substantive = []
 		self.adjectives = []
 		self.verbs = []
 		self.adverbs = []
@@ -26,13 +26,13 @@ class WordAssociator():
 		words_column = content_left[0]
 		if words_column.attrib["class"] == "wordscolumn":
 
-			nouns      = words_column[0]
+			substantive      = words_column[0]
 			adjectives = words_column[1]
 			verbs      = words_column[2]
 			#adverbs    = words_column[3]  TODO: Fehler fangen, wenn es gewisse Worttypen (Wie hier Adverben) nicht gibt
 
-			for child in nouns[1]:
-				self.nouns.append(child[0].text)
+			for child in substantive[1]:
+				self.substantive.append(child[0].text)
 			for child in adjectives[1]:
 				self.adjectives.append(child[0].text)
 			for child in verbs[1]:

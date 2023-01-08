@@ -1,7 +1,7 @@
 from flask import Flask, render_template,send_from_directory, request
 from waitress import serve
 
-from main import writeText
+from Textwriter import Textwriter
 
 import logging
 
@@ -19,7 +19,9 @@ def index():
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
 	topic = request.form['topic']
-	text = writeText(topic)
+	lineCount = request.form['lines']
+	writer = Textwriter(topic,int(lineCount))
+	text = writer.writeText()
 	return render_template('index.html',result=text)
 
 @app.route('/index.css')

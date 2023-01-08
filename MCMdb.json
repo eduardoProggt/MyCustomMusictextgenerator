@@ -59,7 +59,8 @@
 	"Arsch",
 	"King",
 	"Kopf",
-	"Messerstecher"
+	"Messerstecher",
+	"Mittelfinger"
 	],
 "Substantiv_neutrum" : [
 	"Land", 
@@ -73,7 +74,7 @@
 	"Leute",
 	"Ladies",
 	"Hater",
-	"Drackskinder",
+	"Dreckskinder",
 	"Rapper",
 	"Wichser",
 	"Nutten",
@@ -83,7 +84,9 @@
 	"Zeig' ich dir den Mittelfinger",
 	"Bleib ich wie ich bin",
 	"Bin der King mit dem dicken Ding",
-	"Es ist wie ein Stich in Herz"
+	"Es ist wie ein Stich in Herz",
+	"Diesen Rap schreib ich ganz allein aber nein",
+	"Dieser Reim hat kein Doubletime"
 	],
 "Line_Beginnings" : [
 	"Alle Leute sagen zu mir:",
@@ -94,16 +97,27 @@
 	"Ohne nice",
 	"Gebe niemals auf",
 	"Mach es ausm Kopf",
-	"Weiß ich ganz genau"
+	"Weiß ich ganz genau",
+	"Alle haben gedacht",
+	"Jeder wollte das Eine",
+	"Aber diesen Rap",
+	"Ich gehe diesen Weg"
 	],
 "Line_Endings" : [
-	" bin so genial.", 
+	" bin so genial", 
 	" bist so abgezeckt", 
 	" du wohnst in den Knast", 
 	" geh widder Heim", 
 	" es ist der pure Neid", 
 	" lass es aber sein", 
 	" ihr werdet schon sehn",
-	" lass dich nie im Leben gehn"
+	" lass dich nie im Leben gehn",
+	" du gibst draufn Scheiß",
+	" kann nicht rappen aber nein",
+	" dass ihr das wisst",
+	" dass ich untergeh",
+	" geh ich alleine",
+	" auf der Straße chilln",
+	" guck dich selber an"
 	]
 }

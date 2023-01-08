@@ -1,6 +1,7 @@
 import random
 from LineDataContainer import LineDataContainer
 from WordAssociator import WordAssociator
+from chatbot.ChatBot import ChatBot
 
 from copy import deepcopy
 
@@ -22,15 +23,14 @@ class Textwriter:
 		self.topic = str(topic)
 		self.lineCount = int(lineCount)
 		self.text = ""
-		self.lineData = LineDataContainer('MCMdb.txt')
+		self.lineData = LineDataContainer('MCMdb.json')
 
 	def writeText(self):
 
 		withTopic = (not self.topic == "")
 		while self.lineCount > 0:
-			if withTopic:
+			if withTopic and random.randint(0, 15) == 15:
 				self.addTopicLine()
-				withTopic = False
 			else:
 				self.addRandomLine()
 		print(self.text)
@@ -40,8 +40,18 @@ class Textwriter:
 		text = ""
 		lineData = self.lineData
 
-		randint_for_line_type = random.randint(0, 24)
-		if randint_for_line_type > 22:
+		randint_for_line_type = random.randint(0, 29)
+		if randint_for_line_type > 27:
+			self.addLine("Wenn du denkst, was du hast")
+			self.addLine(getRandomElement(lineData.line_endings)[1:].capitalize() + " kleiner Spast")
+			if random.randint(0, 10) == 10:
+				self.addLine("Du wohnst in den Knast")
+		elif randint_for_line_type > 26:
+			self.addLine("Alle "+getRandomElement(lineData.substantive_mehrzahl)+ " haben sich doch nur vor Lachen bepisst")
+		elif randint_for_line_type > 24 and self.lineCount >= 2:
+			self.addLine("Jeder will nur das Eine")
+			self.addLine(getRandomElement(lineData.substantive_maennlich) + " und die Scheine")
+		elif randint_for_line_type > 23:
 			self.addLine(getRandomElement(lineData.substantive_mehrzahl) + " haben ne " + getRandomElement(lineData.substantive_weiblich))
 		elif randint_for_line_type > 21 and self.lineCount >=2:
 			substantive = getRandomElementsExclusive(lineData.substantive_maennlich,2)
@@ -58,15 +68,17 @@ class Textwriter:
 			self.addLine("Soll ich "+getRandomElement(lineData.line_verbs)+" oder ruhn?")
 		else:
 			verb = getRandomElementsExclusive(lineData.line_verbs,3)
-			text+= verb[0] +", " +verb[1] +", "+verb[2] +" und zählen die Scheine" 
-			text = text.capitalize()
+			text+= verb[0].capitalize() +", " +verb[1] +", "+verb[2] +" und zählen die Scheine" 
 			self.addLine(text)
 
 	def addTopicLine(self):
 		text = ""
 		wa = WordAssociator(self.topic)
-		text += "Ich bin eine "+getRandomElement(wa.nouns) +" und ich mag "+ getRandomElement(wa.verbs)
-		self.addLine(text)
+		#cb = ChatBot()
+		#text = cb.generate_response("Schreibe eine Zeile mit den Worten '"+getRandomElement(wa.nouns)+"', '"+getRandomElement(wa.verbs)+"' und '"+getRandomElement(wa.adjectives)+"'")
+		
+		self.addLine("In der Ecke Sitzen "+getRandomElement(wa.substantive)+", "+getRandomElement(wa.substantive) +" sollten sich schämen.")
+		#self.addLine(text.replace('"',''))
 
 	def addLine(self,text):
 		if self.lineCount <=0:

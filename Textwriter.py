@@ -30,7 +30,7 @@ class Textwriter:
 
 		withTopic = (not self.topic == "")
 		while self.lineCount > 0:
-			if withTopic and random.randint(0, 15) < 15:
+			if withTopic and random.randint(0, 15) == 15:
 				self.addTopicLine()
 			else:
 				self.addRandomLine()

@@ -2,6 +2,7 @@ import random
 from LineDataContainer import LineDataContainer
 from WordAssociator import WordAssociator
 from chatbot.ChatBot import ChatBot
+from WordConjugator import WordConjugator
 
 from copy import deepcopy
 
@@ -29,7 +30,7 @@ class Textwriter:
 
 		withTopic = (not self.topic == "")
 		while self.lineCount > 0:
-			if withTopic and random.randint(0, 15) == 15:
+			if withTopic and random.randint(0, 15) < 15:
 				self.addTopicLine()
 			else:
 				self.addRandomLine()
@@ -74,10 +75,11 @@ class Textwriter:
 	def addTopicLine(self):
 		text = ""
 		wa = WordAssociator(self.topic)
+		wc = WordConjugator()
 		#cb = ChatBot()
 		#text = cb.generate_response("Schreibe eine Zeile mit den Worten '"+getRandomElement(wa.nouns)+"', '"+getRandomElement(wa.verbs)+"' und '"+getRandomElement(wa.adjectives)+"'")
 		
-		self.addLine("In der Ecke Sitzen "+getRandomElement(wa.substantive)+", "+getRandomElement(wa.substantive) +" sollten sich schämen.")
+		self.addLine("In der Ecke Sitzt "+wc.addArticle(getRandomElement(wa.substantive))+", "+wc.getPlural(getRandomElement(wa.substantive)) +" sollten sich schämen.")
 		#self.addLine(text.replace('"',''))
 
 	def addLine(self,text):

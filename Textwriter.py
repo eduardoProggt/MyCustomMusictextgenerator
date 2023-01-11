@@ -79,9 +79,11 @@ class Textwriter:
 		#cb = ChatBot()
 		#text = cb.generate_response("Schreibe eine Zeile mit den Worten '"+getRandomElement(wa.nouns)+"', '"+getRandomElement(wa.verbs)+"' und '"+getRandomElement(wa.adjectives)+"'")
 		
+		if len(wa.substantive) == 0: # Wenn keine Assoziationen gefunden wurden.
+			self.addLine("Alle Rapper sagen "+self.topic+" bin so gemein")
+			return
 		self.addLine("In der Ecke Sitzt "+wc.addArticle(getRandomElement(wa.substantive))+", "+wc.getPlural(getRandomElement(wa.substantive)) +" sollten sich schämen.")
-		#self.addLine(text.replace('"',''))
-
+		
 	def addLine(self,text):
 		if self.lineCount <=0:
 			return

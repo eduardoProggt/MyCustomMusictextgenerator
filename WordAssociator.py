@@ -22,6 +22,8 @@ class WordAssociator():
 		main = body[0]
 		container = main[1]
 		content = container[4]
+		if len(content) == 0:
+			return
 		content_left = content[0]
 		words_column = content_left[0]
 		if words_column.attrib["class"] == "wordscolumn":

@@ -17,14 +17,23 @@ class WordConjugator():
 		soup = BeautifulSoup(html_doc,'lxml')
 		input_tag = soup.find_all(attrs={"class" : "mw-headline"})
 
-		if not  input_tag or not input_tag[1].em.contents:
-			return "der " + word
-		if input_tag[1].em.contents[0] == "f":
-			return "die " + word
-		if input_tag[1].em.contents[0] == "m":
-			return "der " + word
-		if input_tag[1].em.contents[0] == "n":
-			return "das " + word
+		#if not  input_tag or not input_tag[1].em.contents:
+		#	return "der " + word
+		#
+		# Pffft. Kein Bock das jetzt ordentlich zu debuggen.
+		# AttributeError: 'NoneType' object has no attribute 'contents' KANN passieren.
+		# Passiert, wenn Wiktionary kein Geschlecht angibt.
+		try:
+			if input_tag[1].em.contents[0] == "f":
+				return "die " + word
+			if input_tag[1].em.contents[0] == "m":
+				return "der " + word
+			if input_tag[1].em.contents[0] == "n":
+				return "das " + word
+		except Exception as e:
+			print("Error")
+			return "der "+word
+
 
 
 

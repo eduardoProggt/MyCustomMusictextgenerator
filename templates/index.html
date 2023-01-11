@@ -9,10 +9,10 @@
 	<form action="{{ url_for('handle_data') }}" method="post">
 		<label for="groesse">
 		    Lines: 
-		    <input id="lines" name="lines" type="number" min="1" max="100" step="1" value="8">
+		    <input id="lines" name="lines" type="number" min="1" max="100" step="1" value="{{ last_lineCount }}">
 		</label>
 		Thema:
-		<input type="text" name="topic">
+		<input type="text" name="topic" value="{{ last_topic }}">
 		<input type="submit">
 	</form>
     <div id="result">{{ result }}</div>

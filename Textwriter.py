@@ -1,7 +1,6 @@
 import random
 from LineDataContainer import LineDataContainer
 from WordAssociator import WordAssociator
-from chatbot.ChatBot import ChatBot
 from WordConjugator import WordConjugator
 
 from copy import deepcopy

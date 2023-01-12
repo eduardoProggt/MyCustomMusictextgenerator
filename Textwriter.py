@@ -38,39 +38,67 @@ class Textwriter:
 		return self.text
 
 	def addRandomLine(self):
-		text = ""
+		
 		lineData = self.lineData
 
 		randint_for_line_type = random.randint(0, 29)
 		if randint_for_line_type > 27:
-			self.addLine("Wenn du denkst, was du hast")
-			self.addLine(getRandomElement(lineData.line_endings)[1:].capitalize() + " kleiner Spast")
-			if random.randint(0, 10) == 10:
-				self.addLine("Du wohnst in den Knast")
+			self.addLineHastSpastKnast(lineData)
 		elif randint_for_line_type > 26:
-			self.addLine("Alle "+getRandomElement(lineData.substantive_mehrzahl)+ " haben sich doch nur vor Lachen bepisst")
+			self.addLineVorLachenBepisst(lineData)
 		elif randint_for_line_type > 24 and self.lineCount >= 2:
-			self.addLine("Jeder will nur das Eine")
-			self.addLine(getRandomElement(lineData.substantive_maennlich) + " und die Scheine")
+			self.addLineJederWillDasEine(lineData)
 		elif randint_for_line_type > 23:
-			self.addLine(getRandomElement(lineData.substantive_mehrzahl) + " haben ne " + getRandomElement(lineData.substantive_weiblich))
+			self.addLineXhabenNeY(lineData)
 		elif randint_for_line_type > 21 and self.lineCount >=2:
-			substantive = getRandomElementsExclusive(lineData.substantive_maennlich,2)
-			self.addLine("Jeder "+ substantive[0] +" will mich dissen")
-			self.addLine("Jeder "+substantive[1]+" kann sich verpissen")
-			if random.randint(0, 1) == 0:
-				self.addLine(getRandomElement(lineData.substantive_mehrzahl)+" haben schlechtes Gewissen")
+			self.addLineDissenVerpissenGewissen(lineData)
 		elif randint_for_line_type > 15:
-			self.addLine(getRandomElement(lineData.line_standalones))
+			self.addLineStandalone(lineData)
 		elif randint_for_line_type > 1:
-			self.addLine(getRandomElement(lineData.line_beginnings) + getRandomElement(lineData.line_endings))
+			self.addLineCombined(lineData)
 		elif randint_for_line_type > 0 and self.lineCount >= 2:
-			self.addLine("Was soll ich tun?")
-			self.addLine("Soll ich "+getRandomElement(lineData.line_verbs)+" oder ruhn?")
+			self.addLineSollichXOderRuhn(lineData)
 		else:
-			verb = getRandomElementsExclusive(lineData.line_verbs,3)
-			text+= verb[0].capitalize() +", " +verb[1] +", "+verb[2] +" und zählen die Scheine" 
-			self.addLine(text)
+			self.addLineZaehleDieScheine(lineData)
+
+	def addLineHastSpastKnast(self,lineData):
+		self.addLine("Wenn du denkst, was du hast")
+		self.addLine(getRandomElement(lineData.line_endings)[1:].capitalize() + " kleiner Spast")
+		if random.randint(0, 10) == 10:
+			self.addLine("Du wohnst in den Knast")
+
+	def addLineVorLachenBepisst(self,lineData):
+		self.addLine("Alle "+getRandomElement(lineData.substantive_mehrzahl)+ " haben sich doch nur vor Lachen bepisst")
+
+	def addLineJederWillDasEine(self,lineData):
+		self.addLine("Jeder will nur das Eine")
+		self.addLine(getRandomElement(lineData.substantive_maennlich) + " und die Scheine")
+
+	def addLineXhabenNeY(self,lineData):
+			self.addLine(getRandomElement(lineData.substantive_mehrzahl) + " haben ne " + getRandomElement(lineData.substantive_weiblich))
+
+	def addLineDissenVerpissenGewissen(self,lineData):
+		substantive = getRandomElementsExclusive(lineData.substantive_maennlich,2)
+		self.addLine("Jeder "+ substantive[0] +" will mich dissen")
+		self.addLine("Jeder "+substantive[1]+" kann sich verpissen")
+		if random.randint(0, 1) == 0:
+			self.addLine(getRandomElement(lineData.substantive_mehrzahl)+" haben schlechtes Gewissen")
+
+	def addLineStandalone(self,lineData):
+		self.addLine(getRandomElement(lineData.line_standalones))
+
+	def addLineCombined(self,lineData):
+		self.addLine(getRandomElement(lineData.line_beginnings) + getRandomElement(lineData.line_endings))
+			
+	def addLineSollichXOderRuhn(self,lineData):
+		self.addLine("Was soll ich tun?")
+		self.addLine("Soll ich "+getRandomElement(lineData.line_verbs)+" oder ruhn?")
+
+	def addLineZaehleDieScheine(self,lineData):
+		text = ""
+		verb = getRandomElementsExclusive(lineData.line_verbs,3)
+		text+= verb[0].capitalize() +", " +verb[1] +", "+verb[2] +" und zählen die Scheine" 
+		self.addLine(text)
 
 	def addTopicLine(self):
 		text = ""
@@ -83,7 +111,7 @@ class Textwriter:
 			self.addLine("Alle Rapper sagen "+self.topic+" bin so gemein")
 			return
 		self.addLine("In der Ecke Sitzt "+wc.addArticle(getRandomElement(wa.substantive))+", "+wc.getPlural(getRandomElement(wa.substantive)) +" sollten sich schämen.")
-		
+		# es braucht keine x auf der Welt \n dass es y auch gefällt 
 	def addLine(self,text):
 		if self.lineCount <=0:
 			return

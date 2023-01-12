@@ -41,25 +41,24 @@ class Textwriter:
 		
 		lineData = self.lineData
 
+		randomMap = {
+			29: self.addLineHastSpastKnast,
+			27: self.addLineVorLachenBepisst,
+			26: self.addLineJederWillDasEine,		
+			24: self.addLineXhabenNeY,		
+			23: self.addLineDissenVerpissenGewissen,		
+			21: self.addLineStandalone,		
+			15: self.addLineCombined,		
+			1 : self.addLineSollichXOderRuhn,		
+			0 : self.addLineZaehleDieScheine,
+		}
 		randint_for_line_type = random.randint(0, 29)
-		if randint_for_line_type > 27:
-			self.addLineHastSpastKnast(lineData)
-		elif randint_for_line_type > 26:
-			self.addLineVorLachenBepisst(lineData)
-		elif randint_for_line_type > 24 and self.lineCount >= 2:
-			self.addLineJederWillDasEine(lineData)
-		elif randint_for_line_type > 23:
-			self.addLineXhabenNeY(lineData)
-		elif randint_for_line_type > 21 and self.lineCount >=2:
-			self.addLineDissenVerpissenGewissen(lineData)
-		elif randint_for_line_type > 15:
-			self.addLineStandalone(lineData)
-		elif randint_for_line_type > 1:
-			self.addLineCombined(lineData)
-		elif randint_for_line_type > 0 and self.lineCount >= 2:
-			self.addLineSollichXOderRuhn(lineData)
-		else:
-			self.addLineZaehleDieScheine(lineData)
+
+		while not randint_for_line_type in randomMap:
+			randint_for_line_type +=1
+
+		randomMap[randint_for_line_type](lineData)
+
 
 	def addLineHastSpastKnast(self,lineData):
 		self.addLine("Wenn du denkst, was du hast")
@@ -71,6 +70,8 @@ class Textwriter:
 		self.addLine("Alle "+getRandomElement(lineData.substantive_mehrzahl)+ " haben sich doch nur vor Lachen bepisst")
 
 	def addLineJederWillDasEine(self,lineData):
+		if self.lineCount < 2:
+			return
 		self.addLine("Jeder will nur das Eine")
 		self.addLine(getRandomElement(lineData.substantive_maennlich) + " und die Scheine")
 
@@ -78,6 +79,8 @@ class Textwriter:
 			self.addLine(getRandomElement(lineData.substantive_mehrzahl) + " haben ne " + getRandomElement(lineData.substantive_weiblich))
 
 	def addLineDissenVerpissenGewissen(self,lineData):
+		if self.lineCount < 2:
+			return
 		substantive = getRandomElementsExclusive(lineData.substantive_maennlich,2)
 		self.addLine("Jeder "+ substantive[0] +" will mich dissen")
 		self.addLine("Jeder "+substantive[1]+" kann sich verpissen")
@@ -91,6 +94,8 @@ class Textwriter:
 		self.addLine(getRandomElement(lineData.line_beginnings) + getRandomElement(lineData.line_endings))
 			
 	def addLineSollichXOderRuhn(self,lineData):
+		if self.lineCount < 2:
+			return
 		self.addLine("Was soll ich tun?")
 		self.addLine("Soll ich "+getRandomElement(lineData.line_verbs)+" oder ruhn?")
 

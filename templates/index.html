@@ -9,7 +9,7 @@
 	<form action="{{ url_for('handle_data') }}" method="post">
 		<label for="groesse">
 		    Lines: 
-		    <input id="lines" name="lines" type="number" min="1" max="100" step="1" value="{{ last_lineCount }}">
+		    <input id="lines" name="lines" type="number" min="1" max="100" step="1" value="{{ lineCount }}">
 		</label>
 		Thema:
 		<input type="text" name="topic" value="{{ last_topic }}">

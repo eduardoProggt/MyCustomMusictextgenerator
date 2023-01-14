@@ -6,16 +6,17 @@ between = False
 class WordAssociator():
 
 	def __init__(self,word):
-		self.substantive = []
+		self.nouns = []
 		self.adjectives = []
 		self.verbs = []
 		self.adverbs = []
+		self.word = word
 
 		url = "https://wordassociations.net/de/assoziationen-mit-dem-wort/"+word
 		response = requests.get(url)
 		response.encoding ='utf-8'
 
-		text = response.text.replace("&raquo;","'").replace("&laquo;",",").replace("&copy;","(C)")
+		text = response.text.replace("&raquo;","'").replace("&laquo;","'").replace("&copy;","(C)")
 
 		root = ET.fromstring(text)
 		body = root[1]
@@ -34,7 +35,7 @@ class WordAssociator():
 			#adverbs    = words_column[3]  TODO: Fehler fangen, wenn es gewisse Worttypen (Wie hier Adverben) nicht gibt
 
 			for child in substantive[1]:
-				self.substantive.append(child[0].text)
+				self.nouns.append(child[0].text)
 			for child in adjectives[1]:
 				self.adjectives.append(child[0].text)
 			for child in verbs[1]:
@@ -44,3 +45,7 @@ class WordAssociator():
 
 		else:
 			pass # TODO Nach Synonymen von word suchen und nochmal probieren 
+	def getNouns(self):
+		wordList = []
+		wordList.append(self.word)
+		return self.nouns if len(self.nouns) > 0 else wordList

@@ -24,6 +24,7 @@ class Textwriter:
 		self.lineCount = int(lineCount)
 		self.text = ""
 		self.lineData = LineDataContainer('MCMdb.json')
+		self.lastRhyme = ""
 
 	def writeText(self):
 
@@ -76,7 +77,7 @@ class Textwriter:
 		self.addLine(getRandomElement(lineData.substantive_maennlich) + " und die Scheine")
 
 	def addLineXhabenNeY(self,lineData):
-			self.addLine(getRandomElement(lineData.substantive_mehrzahl) + " haben ne " + getRandomElement(lineData.substantive_weiblich))
+		self.addLine(getRandomElement(lineData.substantive_mehrzahl) + " haben ne " + getRandomElement(lineData.substantive_weiblich))
 
 	def addLineDissenVerpissenGewissen(self,lineData):
 		if self.lineCount < 2:
@@ -88,10 +89,42 @@ class Textwriter:
 			self.addLine(getRandomElement(lineData.substantive_mehrzahl)+" haben schlechtes Gewissen")
 
 	def addLineStandalone(self,lineData):
-		self.addLine(getRandomElement(lineData.line_standalones))
+		if random.randint(0,3) == 3:
+			element = getRandomElement(lineData.line_standalones)
+		else:
+			rhymeLines = []
+			for line, rhyme in zip(lineData.line_standalones,lineData.line_standalones_rhymes):
+				if rhyme == self.lastRhyme:
+					rhymeLines.append(line)
+			if len(rhymeLines) > 0:
+				element = getRandomElement(rhymeLines)
+			else:
+				element = getRandomElement(lineData.line_standalones) 		
+		self.addLine(element)
+		#Hacky, refactor pls.
+		idx = lineData.line_standalones.index(element)
+		self.lastRhyme = lineData.line_standalones_rhymes[idx]
 
 	def addLineCombined(self,lineData):
-		self.addLine(getRandomElement(lineData.line_beginnings) + getRandomElement(lineData.line_endings))
+		if random.randint(0,3) == 3:
+			ending = getRandomElement(lineData.line_endings)
+		else:
+			rhymeLines = []
+			for line, rhyme in zip(lineData.line_endings,lineData.line_endings_rhymes):
+				
+				if rhyme == self.lastRhyme:
+					rhymeLines.append(line)
+			if len(rhymeLines) > 0:
+				ending = getRandomElement(rhymeLines)
+			else:
+				ending = getRandomElement(lineData.line_endings) 		
+		
+		self.addLine(getRandomElement(lineData.line_beginnings) + ending)
+		
+		idx = lineData.line_endings.index(ending)
+		
+		self.lastRhyme = lineData.line_endings_rhymes[idx]
+
 			
 	def addLineSollichXOderRuhn(self,lineData):
 		if self.lineCount < 2:

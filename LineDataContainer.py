@@ -9,7 +9,9 @@ class LineDataContainer():
 
 		self.line_beginnings = data["Line_Beginnings"]
 		self.line_endings = data["Line_Endings"]
+		self.line_endings_rhymes = data["Line_Endings_Rhymes"]
 		self.line_standalones = data["Line_Standalone"]
+		self.line_standalones_rhymes = data["Line_Standalone_Rhymes"]
 		self.line_verbs = data['Verben']
 		self.substantive_maennlich = data['Substantiv_maennlich']
 		self.substantive_weiblich = data['Substantiv_weiblich']

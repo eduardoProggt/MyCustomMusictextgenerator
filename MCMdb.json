@@ -85,10 +85,21 @@
 	"Zeig' ich dir den Mittelfinger",
 	"Bleib ich wie ich bin",
 	"Bin der King mit dem dicken Ding",
-	"Es ist wie ein Stich in Herz",
+	"Es ist wie ein Stich in Herz", 
 	"Diesen Rap schreib ich ganz allein aber nein",
 	"Dieser Reim hat kein Doubletime",
-	"Es ist immer dies oder das"
+	"Es ist immer dies oder das",
+	"Du kek" 
+	],
+"Line_Standalone_Rhymes" : [
+	"inger",
+	"in",
+	"in",
+	"erz",
+	"ei",
+	"ei",
+	"as",
+	"ek"
 	],
 "Line_Beginnings" : [
 	"Alle Leute sagen zu mir:",
@@ -108,7 +119,8 @@
 	],
 "Line_Endings" : [
 	" bin so genial", 
-	" bist so abgezeckt", 
+	" bist so abgezeckt",
+	" du hast kein Respekt",
 	" du wohnst in den Knast", 
 	" geh widder Heim", 
 	" es ist der pure Neid", 
@@ -122,5 +134,24 @@
 	" geh ich alleine",
 	" auf der Straße chilln",
 	" guck dich selber an"
+	],
+"Line_Endings_Rhymes" : [
+	"al",
+	"ek",
+	"ek",
+	"as",
+	"ei",
+	"ei",
+	"ei",
+	"eh",
+	"eh",
+	"ei",
+	"ei",
+	"isst",
+	"eh",
+	"eine",
+	"illn",
+	"an"
 	]
+
 }

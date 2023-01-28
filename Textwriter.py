@@ -27,6 +27,7 @@ class Textwriter:
 		self.text = ""
 		self.lineData = LineDataContainer('MCMdb.json')
 		self.lastRhyme = "ei"
+		self.lastLineId = 0
 		dbConnection = sqlite3.connect("database.db")
 		self.dbCursor = dbConnection.cursor()
 
@@ -106,10 +107,15 @@ class Textwriter:
 		if random.randint(0,2) == 2:
 			request+= " WHERE rhyme == \""+self.lastRhyme+"\""
 		results = self.dbCursor.execute(request).fetchall()
+		if len(results) == 1: #Wiederkehren ein und derselben Zeile verhindern
+			if self.lastLineId == int(results[0][0]):# id des einzigen elements
+				results = []#Schmeiß raus.
 		if len(results) > 0:
 			result = getRandomElement(results)
 		else: 
 			result = getRandomElement(self.dbCursor.execute("SELECT * from " + table).fetchall())
+
+		self.lastLineId = int(result[0])
 		self.lastRhyme = result[2]
 		return result[1]
 

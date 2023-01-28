@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>My Custom Musictextgenerator</title>
-	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href={{ url_for('static', filename='index.css') }}>
 </head>
 <body>
 	<h1>My Custom Musictextgenerator</h1>
@@ -13,7 +13,7 @@
 		</label>
 		Thema:
 		<input type="text" name="topic" value="{{ last_topic }}">
-		<input type="submit">
+		<input type="submit" value="Nochmal Rolln">
 	</form>
     <div id="result">{{ result }}</div>
 </body>

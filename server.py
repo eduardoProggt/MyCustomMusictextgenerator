@@ -28,9 +28,6 @@ def handle_data():
 	#
 	return render_template('index.html',result=text, lineCount = lineCount, last_topic = topic)
 
-@app.route('/index.css')
-def css():#
-	return send_from_directory("templates", "index.css")
 
 if __name__ == '__main__':
 	serve(app,port=50100, threads=2,url_scheme='https')

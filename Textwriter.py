@@ -114,7 +114,6 @@ class Textwriter:
 			result = getRandomElement(results)
 		else: 
 			result = getRandomElement(self.dbCursor.execute("SELECT * from " + table).fetchall())
-
 		self.lastLineId = int(result[0])
 		self.lastRhyme = result[2]
 		return result[1]
@@ -159,7 +158,7 @@ class Textwriter:
 		}
 
 		#Die Untersten Keys haben Zeilen die auch ohne Assoziationen gehen
-		randint_for_line_type = random.randint(0, 13) if len(wa.nouns) > 0 else random.randint(0,5)
+		randint_for_line_type = random.randint(0, 13) if len(wa.verbs) > 0 else random.randint(0,5)
 		randomMap[randint_for_line_type](wa)
 
 	def addLineAlleXYAufDerStraße(self,wa):
@@ -184,7 +183,7 @@ class Textwriter:
 	def addLineSindNichtMehrAlsDerHass(self,wa):
 		self.addLine(wc.getPlural(wa.word) +" sind nicht mehr als der Hass und Neid")
 	def addLineWasIstDennLosMoos(self,wa):
-		self.addLine("Was ist denn los? seid ihr "+wc.getPlural(getRandomElement(wa.getNouns()))+" oder Moos?")
+		self.addLine("Was ist denn los? Seid ihr "+wc.getPlural(getRandomElement(wa.getNouns()))+" oder Moos?")
 	def addLineEgalObSieLachen(self,wa):
 		self.addLine("Es ist mir egal, ob die " + wc.getPlural(getRandomElement(wa.getNouns())) + " über mich lachen")
 	def addLineLassEsSeinSoGemein(self,wa):

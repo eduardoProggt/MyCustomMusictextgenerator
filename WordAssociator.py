@@ -37,9 +37,9 @@ class WordAssociator():
 			for child in substantive[1]:
 				self.nouns.append(child[0].text)
 			for child in adjectives[1]:
-				self.adjectives.append(child[0].text)
+				self.adjectives.append(child[0].text.lower())
 			for child in verbs[1]:
-				self.verbs.append(child[0].text)
+				self.verbs.append(child[0].text.lower())
 			#for child in adverbs[1]:
 				#self.adverbs.append(child[0].text)
 

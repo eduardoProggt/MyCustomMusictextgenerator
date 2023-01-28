@@ -89,7 +89,11 @@
 	"Diesen Rap schreib ich ganz allein aber nein",
 	"Dieser Reim hat kein Doubletime",
 	"Es ist immer dies oder das",
-	"Du kek" 
+	"Auf diesen Reim fällt mir aber auch einen ein",
+	"Es ist immer dies oder das",
+	"Du kek",
+	"Sitze hier, trinke mein Bier"
+
 	],
 "Line_Standalone_Rhymes" : [
 	"inger",
@@ -99,7 +103,10 @@
 	"ei",
 	"ei",
 	"as",
-	"ek"
+	"ei",
+	"as",
+	"ek",
+	"ihr"
 	],
 "Line_Beginnings" : [
 	"Alle Leute sagen zu mir:",
@@ -115,13 +122,17 @@
 	"Jeder wollte das Eine",
 	"Aber diesen Rap",
 	"Ich gehe diesen Weg",
-	"Jetzt mal ehrlich"
+	"Jetzt mal ehrlich",
+	"Wenn ich drüber nachdenke"
 	],
 "Line_Endings" : [
 	" bin so genial", 
+	" bist so abgezeckt", 
+	" es ist mir egal",
 	" bist so abgezeckt",
 	" du hast kein Respekt",
 	" du wohnst in den Knast", 
+	" fällt mir auch nur einer ein",
 	" geh widder Heim", 
 	" es ist der pure Neid", 
 	" lass es aber sein", 
@@ -131,15 +142,21 @@
 	" kann nicht rappen aber nein",
 	" dass ihr das wisst",
 	" dass ich untergeh",
+	" jeder will mir was erzählen",
+	" ihr werdet mich verstehn",
 	" geh ich alleine",
 	" auf der Straße chilln",
-	" guck dich selber an"
+	" guck dich selber an",
+	" bin ich so Fler"
 	],
 "Line_Endings_Rhymes" : [
 	"al",
 	"ek",
+	"al",
+	"ek",
 	"ek",
 	"as",
+	"ei",
 	"ei",
 	"ei",
 	"ei",
@@ -149,9 +166,24 @@
 	"ei",
 	"isst",
 	"eh",
+	"eh",
+	"eh",
 	"eine",
 	"illn",
-	"an"
+	"an",
+	"er"
+	],
+"people" : [
+	"Mcm",
+	"Imp",
+	"Narster",
+	"Herodes",
+	"Urwill",
+	"Profi Ghost",
+	"Eiren",
+	"Sara Schan",
+	"Suhlfingen",
+	"Mirii"
 	]
 
 }

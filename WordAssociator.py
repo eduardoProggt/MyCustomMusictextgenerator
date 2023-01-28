@@ -1,5 +1,7 @@
-import requests
+import requests, re
 import xml.etree.ElementTree as ET
+#Besser:
+from bs4 import BeautifulSoup
 
 between = False
 
@@ -24,6 +26,7 @@ class WordAssociator():
 		container = main[1]
 		content = container[4]
 		if len(content) == 0:
+			self.getWikiInfo()
 			return
 		content_left = content[0]
 		words_column = content_left[0]
@@ -43,9 +46,43 @@ class WordAssociator():
 			#for child in adverbs[1]:
 				#self.adverbs.append(child[0].text)
 
-		else:
-			pass # TODO Nach Synonymen von word suchen und nochmal probieren 
+			 
+	def getWikiInfo(self):
+		words = self.word.split(" ")
+		capiWords = []
+		for w in words:
+			capiWords.append(w.capitalize())
+		word = "_".join(capiWords)
+		url = "https://de.wikipedia.org/wiki/"+word
+		response = requests.get(url)
+		response.encoding ='utf-8'
+		html_doc = response.text
+		soup = BeautifulSoup(html_doc,'lxml')
+		if len(soup.find_all(attrs={"class":"noarticletext"})) > 0:
+			return
+		content = soup.find_all(attrs={"id" : "bodyContent"})[0]
+		paragraphs = content.find_all("p")
+		hrefs = []
+		for p in paragraphs:
+			links = p.find_all("a")
+			hrefs = hrefs + links
+		for ref in hrefs:
+			try:
+				noun = ref["title"]
+			except Exception as e:
+				continue
+			noun = re.sub("[\(\[].*?[\)\]]", "", noun)
+			self.nouns.append(noun.rstrip())
+			if(len(self.nouns)>=100):
+				break
+		return self.nouns
+
 	def getNouns(self):
 		wordList = []
 		wordList.append(self.word)
 		return self.nouns if len(self.nouns) > 0 else wordList
+
+if __name__ == '__main__':
+	import sys
+	wa = WordAssociator(sys.argv[1])
+	print(wa.getWikiInfo())

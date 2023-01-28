@@ -184,7 +184,7 @@ class Textwriter:
 		self.addLine("Ob "+wc.getPlural(getRandomElement(wa.getNouns()))+" "+getRandomElement(wa.verbs)+" oder nicht")
 
 	def addLineSindNichtMehrAlsDerHass(self,wa):
-		self.addLine(wc.getPlural(wa.word) +" sind nicht mehr als der Hass und Neid")
+		self.addLine(wc.getPlural(getRandomElement(wa.getNouns())) +" sind nicht mehr als der Hass und Neid")
 	def addLineWasIstDennLosMoos(self,wa):
 		self.addLine("Was ist denn los? Seid ihr "+wc.getPlural(getRandomElement(wa.getNouns()))+" oder Moos?")
 	def addLineEgalObSieLachen(self,wa):
@@ -198,7 +198,7 @@ class Textwriter:
 		self.addLine("Es braucht keine "+wc.getPlural(getRandomElement(wa.getNouns()))+" auf der Welt")
 		self.addLine("Dass es "+wc.getPlural(getRandomElement(wa.getNouns()))+" auch gefällt") 
 	def addLineAlleRapperSagen(self,wa):
-		self.addLine("Alle Rapper sagen "+wa.word+", bin so gemein")
+		self.addLine("Alle Rapper sagen "+getRandomElement(wa.getNouns())+", bin so gemein")
 
 	def addLine(self,text):
 		if self.lineCount <=0:

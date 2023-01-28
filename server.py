@@ -13,6 +13,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+	return render_template("NTV/ntv.html")
+
+@app.route('/<cssFile>.css')
+def renderCss(cssFile):
+	return send_from_directory("templates/NTV/",cssFile+".css")
+
+@app.route('/<pngFile>.png')
+def renderPng(pngFile):
+	return send_from_directory("templates/NTV/",pngFile+".png")
+
+@app.route('/<jpgFile>.jpg')
+def renderJpg(jpgFile):
+	return send_from_directory("templates/NTV/",jpgFile+".jpg")
+
+@app.route('/mcmDB')
+def mcmDB():
 	print(request)
 	print(request.remote_addr, "hat sich raufgeschaltne")
 	return render_template('index.html',lineCount = 8,last_topic = "")

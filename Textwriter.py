@@ -28,7 +28,10 @@ class Textwriter:
 		self.lineData = LineDataContainer('MCMdb.json')
 		self.lastRhyme = "ei"
 		self.lastLineId = 0
-		dbConnection = sqlite3.connect("database.db")
+		try:
+			dbConnection = sqlite3.connect("database.db")
+		except Exception as e:
+			print("Keine database.db vorhanden. Script createDB ausgeführt?")
 		self.dbCursor = dbConnection.cursor()
 
 	def writeText(self):

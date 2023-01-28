@@ -15,6 +15,14 @@ app = Flask(__name__)
 def index():
 	return render_template("NTV/ntv.html")
 
+@app.route('/game/kpfg.html')
+def kpfg():
+	return render_template("NTV/game/kpfg.html")
+
+@app.route("/kpfg.js")
+def js():
+	return send_from_directory("templates/NTV/game/","kpfg.js")
+
 @app.route('/<cssFile>.css')
 def renderCss(cssFile):
 	return send_from_directory("templates/NTV/",cssFile+".css")

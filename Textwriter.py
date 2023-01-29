@@ -51,6 +51,7 @@ class Textwriter:
 	def addRandomLine(self):
 		
 		randomMap = {
+			36: self.addLineWasWillstDuVonMirABCTrinkeMeinBier,
 			35: self.addLinePeopleSindDerBesteRapper,
 			33: self.addLineHastSpastKnast,
 			31: self.addLineVorLachenBepisst,
@@ -68,6 +69,15 @@ class Textwriter:
 			randint_for_line_type +=1
 
 		randomMap[randint_for_line_type](self.lineData)
+	def addLineWasWillstDuVonMirABCTrinkeMeinBier(self,lineData):
+		if self.lineCount < 3:
+			return
+		self.addLine("Was willst du von mir")
+		if random.randint(0,2) == 2:
+			self.addLineStandalone(self.lineData)
+		else:
+			self.addLineCombined(self.lineData)
+		self.addLine("Trinke mein Bier")
 
 	def addLinePeopleSindDerBesteRapper(self,lineData):
 		person1,person2 = getRandomElementsExclusive(lineData.people,2)
@@ -144,14 +154,17 @@ class Textwriter:
 	def addTopicLine(self,wa):
 		
 		randomMap = {
-			13: self.addLineAlleXYAufDerStraße,
-			12: self.addLineSitzeHierZieheMirEinenRein,
-			11: self.addLineFrueherWarnAufDemRasen,
-			10: self.addLineInderEckeSitzt,#
-			9: self.addLineSoGenial,#
-			8: self.addLineAgalObXYoderZ,#
-			7: self.addLineJederMachtEinenAuf,#	
-			6: self.addLineObXYOderNicht,#
+			15: self.addLineAlleXYAufDerStraße,
+			14: self.addLineSitzeHierZieheMirEinenRein,
+			13: self.addLineFrueherWarnAufDemRasen,
+			12: self.addLineInderEckeSitzt,#
+			11: self.addLineSoGenial,#
+			10: self.addLineAgalObXYoderZ,#
+			9: self.addLineJederMachtEinenAuf,#	
+			8: self.addLineObXYOderNicht,#
+			#
+			7: self.addLineZeigIchDirDenXYsolltenWeitergehn,
+			6: self.addLineEsIstImmerGenauDasGleicheWieX,
 			5: self.addLineSindNichtMehrAlsDerHass,
 			4: self.addLineWasIstDennLosMoos,#		
 			3: self.addLineEgalObSieLachen,#		
@@ -161,7 +174,7 @@ class Textwriter:
 		}
 
 		#Die Untersten Keys haben Zeilen die auch ohne Assoziationen gehen
-		randint_for_line_type = random.randint(0, 13) if len(wa.verbs) > 0 else random.randint(0,5)
+		randint_for_line_type = random.randint(0, 15) if len(wa.verbs) > 0 else random.randint(0,7)
 		randomMap[randint_for_line_type](wa)
 
 	def addLineAlleXYAufDerStraße(self,wa):
@@ -183,6 +196,11 @@ class Textwriter:
 	def addLineObXYOderNicht(self,wa):
 		self.addLine("Ob "+wc.getPlural(getRandomElement(wa.getNouns()))+" "+getRandomElement(wa.verbs)+" oder nicht")
 
+	def addLineZeigIchDirDenXYsolltenWeitergehn(self,wa):
+		nounA,nounB = getRandomElementsExclusive(wa.getNouns(),2)
+		self.addLine("Zeig ich dir den "+nounA+", "+nounB+" sollten doch nun weitergehn")
+	def addLineEsIstImmerGenauDasGleicheWieX(self,wa):
+		self.addLine("Es ist immer genau das gleiche wie "+getRandomElement(wa.getNouns()))
 	def addLineSindNichtMehrAlsDerHass(self,wa):
 		self.addLine(wc.getPlural(getRandomElement(wa.getNouns())) +" sind nicht mehr als der Hass und Neid")
 	def addLineWasIstDennLosMoos(self,wa):

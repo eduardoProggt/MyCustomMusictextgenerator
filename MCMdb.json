@@ -44,6 +44,8 @@
 	"Mann",
 	"Porno",
 	"MCM",
+	"Sex",
+	"Ruhm",
 	"Schwanz",
 	"Nazi",
 	"Spast",
@@ -61,12 +63,14 @@
 	"King",
 	"Kopf",
 	"Messerstecher",
-	"Mittelfinger"
+	"Mittelfinger",
+	"Dies oder das"
 	],
 "Substantiv_neutrum" : [
 	"Land", 
 	"Haus",
-	"Deutschland"
+	"Deutschland",
+	"Geld"
 	],
 "Substantiv_mehrzahl" : [
 	"Titten",
@@ -93,7 +97,6 @@
 	"Es ist immer dies oder das",
 	"Du kek",
 	"Sitze hier, trinke mein Bier"
-
 	],
 "Line_Standalone_Rhymes" : [
 	"inger",
@@ -123,7 +126,8 @@
 	"Aber diesen Rap",
 	"Ich gehe diesen Weg",
 	"Jetzt mal ehrlich",
-	"Wenn ich drüber nachdenke"
+	"Wenn ich drüber nachdenke",
+	"Checkt das aber mal"
 	],
 "Line_Endings" : [
 	" bin so genial", 
@@ -146,7 +150,11 @@
 	" geh ich alleine",
 	" auf der Straße chilln",
 	" guck dich selber an",
-	" bin ich so Fler"
+	" bin ich so Fler",
+	" es ist doch nicht mehr normal",
+	" hab aber keinen",
+	" in der Ecke weitergehen",
+	" wenn es dann so schmerzt"
 	],
 "Line_Endings_Rhymes" : [
 	"al",
@@ -169,7 +177,11 @@
 	"eine",
 	"illn",
 	"an",
-	"er"
+	"er",
+	"al",
+	"ei",
+	"eh",
+	"erz"
 	],
 "people" : [
 	"Mcm",

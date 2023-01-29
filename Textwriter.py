@@ -63,7 +63,8 @@ class Textwriter:
 			1 : self.addLineSollichXOderRuhn,		
 			0 : self.addLineZaehleDieScheine,
 		}
-		randint_for_line_type = random.randint(0, len(randomMap))
+		length = max(k for k in randomMap.keys())
+		randint_for_line_type = random.randint(0,length)
 
 		while not randint_for_line_type in randomMap:
 			randint_for_line_type +=1

@@ -27,26 +27,28 @@ class WordAssociator():
 		content = container[4]
 		if len(content) == 0:
 			self.getWikiInfo()
-			return
-		content_left = content[0]
-		words_column = content_left[0]
-		if words_column.attrib["class"] == "wordscolumn":
+		else:
+			content_left = content[0]
+			words_column = content_left[0]
+			if words_column.attrib["class"] == "wordscolumn":
 
-			substantive      = words_column[0]
-			adjectives = words_column[1]
-			verbs      = words_column[2]
-			#adverbs    = words_column[3]  TODO: Fehler fangen, wenn es gewisse Worttypen (Wie hier Adverben) nicht gibt
+				substantive      = words_column[0]
+				adjectives = words_column[1]
+				verbs      = words_column[2]
+				#adverbs    = words_column[3]  TODO: Fehler fangen, wenn es gewisse Worttypen (Wie hier Adverben) nicht gibt
 
-			for child in substantive[1]:
-				self.nouns.append(child[0].text)
-			for child in adjectives[1]:
-				self.adjectives.append(child[0].text.lower())
-			for child in verbs[1]:
-				self.verbs.append(child[0].text.lower())
-			#for child in adverbs[1]:
-				#self.adverbs.append(child[0].text)
+				for child in substantive[1]:
+					self.nouns.append(child[0].text)
+				for child in adjectives[1]:
+					self.adjectives.append(child[0].text.lower())
+				for child in verbs[1]:
+					self.verbs.append(child[0].text.lower())
+				#for child in adverbs[1]:
+					#self.adverbs.append(child[0].text)
+		print("\""+self.word+"\" wurde eingegeben.")
+		print("Substantive:")
+		print(self.nouns)
 
-			 
 	def getWikiInfo(self):
 		words = self.word.split(" ")
 		capiWords = []

@@ -16,7 +16,8 @@ def getRandomElementsExclusive(line,noOfLines):
 	for i in range(0,noOfLines):
 		newLine = getRandomElement(lineIn)
 		lines.append(newLine)
-		lineIn.remove(newLine)
+		if len(lineIn) > 1: #Falls in dem Array zu wenig Elemente drinne sind, schaut mn in die Röhre
+			lineIn.remove(newLine)
 	return lines
 
 class Textwriter:
@@ -51,8 +52,8 @@ class Textwriter:
 	def addRandomLine(self):
 		
 		randomMap = {
-			36: self.addLineWasWillstDuVonMirABCTrinkeMeinBier,
-			35: self.addLinePeopleSindDerBesteRapper,
+			35: self.addLineWasWillstDuVonMirABCTrinkeMeinBier,
+			34: self.addLinePeopleSindDerBesteRapper,
 			33: self.addLineHastSpastKnast,
 			31: self.addLineVorLachenBepisst,
 			30: self.addLineJederWillDasEine,		
@@ -198,7 +199,8 @@ class Textwriter:
 		self.addLine("Ob "+wc.getPlural(getRandomElement(wa.getNouns()))+" "+getRandomElement(wa.verbs)+" oder nicht")
 
 	def addLineZeigIchDirDenXYsolltenWeitergehn(self,wa):
-		nounA,nounB = getRandomElementsExclusive(wa.getNouns(),2)
+		nouns = wa.getNouns()
+		nounA,nounB = getRandomElementsExclusive(nouns,2)
 		self.addLine("Zeig ich dir den "+nounA+", "+nounB+" sollten doch nun weitergehn")
 	def addLineEsIstImmerGenauDasGleicheWieX(self,wa):
 		self.addLine("Es ist immer genau das gleiche wie "+getRandomElement(wa.getNouns()))

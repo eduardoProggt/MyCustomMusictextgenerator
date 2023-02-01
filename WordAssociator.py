@@ -31,10 +31,12 @@ class WordAssociator():
 			content_left = content[0]
 			words_column = content_left[0]
 			if words_column.attrib["class"] == "wordscolumn":
-
-				substantive      = words_column[0]
-				adjectives = words_column[1]
-				verbs      = words_column[2]
+				substantive= words_column[0]
+				adjectives = [[],[]]
+				verbs = [[],[]]
+				if len(words_column) >= 3:
+					adjectives = words_column[1]
+					verbs      = words_column[2]
 				#adverbs    = words_column[3]  TODO: Fehler fangen, wenn es gewisse Worttypen (Wie hier Adverben) nicht gibt
 
 				for child in substantive[1]:
@@ -62,10 +64,20 @@ class WordAssociator():
 		soup = BeautifulSoup(html_doc,'lxml')
 		if len(soup.find_all(attrs={"class":"noarticletext"})) > 0:
 			return
-		content = soup.find_all(attrs={"id" : "bodyContent"})[0]
-		paragraphs = content.find_all("p")
+		contentP = soup.find_all(attrs={"id" : "bodyContent"})[0]
+		paragraphs = contentP.find_all("p")
+
+		contentLI = soup.find_all(attrs={"class" : "mw-parser-output"})[0]
+		entries = []
+		for lists in contentLI.find_all("ul"):
+			entries += lists.find_all("li")
+			for i in entries:
+				print(i.text)
+
+		paragraphsAndEntries = paragraphs+entries
 		hrefs = []
-		for p in paragraphs:
+		for p in paragraphsAndEntries:
+
 			links = p.find_all("a")
 			hrefs = hrefs + links
 		for ref in hrefs:
@@ -79,9 +91,27 @@ class WordAssociator():
 				break
 		return self.nouns
 
+	def tryIfOverviewPage(self, soup):
+		mainPage = soup.find_all(attrs={"class":"mw-parser-output"})
+		if len(mainPage) > 0:
+			for listEntry in mainPage[0].find_all("li"):
+				links = p.find_all("a")
+				hrefs = hrefs + links
+			for ref in hrefs:
+				try:
+					noun = ref["title"]
+				except Exception as e:
+					continue
+				noun = re.sub("[\(\[].*?[\)\]]", "", noun)
+				self.nouns.append(noun.rstrip())
+				if(len(self.nouns)>=100):
+					break
+			return self.nouns	
 	def getNouns(self):
 		wordList = []
 		wordList.append(self.word)
+		print( len(self.nouns))
+		print(wordList)
 		return self.nouns if len(self.nouns) > 0 else wordList
 
 if __name__ == '__main__':
